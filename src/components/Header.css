@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  margin-top: 12px;
+  margin: 20px;
+}
+
+.github-icon {
+  width: 33px;
+  height: 30px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.horoscopecope {
+  padding-left: 0.6rem;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+}
