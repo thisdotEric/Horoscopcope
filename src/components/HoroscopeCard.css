@@ -1,11 +1,12 @@
 .horoscopeCard {
   background-color: #392a61;
   width: 311px;
-  height: 311px;
-  margin: 80px;
-  margin-bottom: 0px;
+  height: 280px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 20px;
+  margin-top: 10px;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 .card-header {
@@ -18,6 +19,8 @@
   font-size: 12px;
   font-weight: 500;
   color: #b6b6b6;
+  margin: 20px;
+  margin-top: 30px;
 }
 
 .content p {
@@ -25,5 +28,6 @@
   text-align: left;
   text-indent: 20px;
   padding: 1rem;
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: 300;
 }

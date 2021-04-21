@@ -6,6 +6,11 @@ import horoscopecope_logo from '../assets/horoscopecope_logo.png';
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
+  const openInNewTab = (url: string) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
+  };
+
   return (
     <div className="header">
       <div className="brand">
@@ -13,7 +18,12 @@ const Header: React.FC<HeaderProps> = () => {
         <p className="horoscopecope">Horoscopecope</p>
       </div>
       <div className="icons">
-        <Github className="github-icon" onClick={() => console.log('jj')} />
+        <Github
+          className="github-icon"
+          onClick={() =>
+            openInNewTab('https://github.com/thisdotEric/Horoscopcope')
+          }
+        />
       </div>
     </div>
   );

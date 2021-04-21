@@ -1,24 +1,31 @@
 import React from 'react';
 import './HoroscopeCard.css';
+import calendar from '../assets/calendar.png';
+import medkit from '../assets/medkit.png';
+import heart from '../assets/heart.png';
+import wired from '../assets/wired.png';
 
 interface HoroscopeCardProps {
   name: string;
+  content: string;
+  imageLocation: string;
 }
 
-const HoroscopeCard: React.FC<HoroscopeCardProps> = ({ name }) => {
+const HoroscopeCard: React.FC<HoroscopeCardProps> = ({
+  name,
+  content,
+  imageLocation,
+}) => {
+  const icons = [calendar, wired, heart, medkit];
+
   return (
     <div className="horoscopeCard">
       <div className="card-header">
+        <img src={calendar} alt="" />
         <p>{name}</p>
       </div>
       <div className="content">
-        <p>
-          You can easily pull up every thing together now and make your life
-          larger. Maintain your focus and diverge all your energy onto it. Just
-          do not say anything which can land you in an emotional mess. Those who
-          are in business may be able to expand it or renovate the already
-          established outlets.
-        </p>
+        <p>{content}</p>
       </div>
     </div>
   );

@@ -3,13 +3,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
-  margin-top: 12px;
-  margin: 20px;
+  margin: 10px;
+  margin-bottom: 0px;
 }
 
 .github-icon {
   width: 33px;
   height: 30px;
+  margin-right: 10px;
 }
 
 .brand {
@@ -17,6 +18,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-left: 20px;
 }
 
 .horoscopecope {
