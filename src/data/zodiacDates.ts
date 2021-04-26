@@ -56,6 +56,11 @@ export const zodiacSigns: ZodiacSign[] = [
     dateEnd: "Jan 19",
   },
   {
+    name: "Aquarius",
+    dateStart: "Jan 20",
+    dateEnd: "Feb 18",
+  },
+  {
     name: "Pisces",
     dateStart: "Feb 19",
     dateEnd: "Mar 20",
