@@ -4,6 +4,8 @@ import ZodiacCard from './components/ZodiacCard';
 import HoroscopeCard from './components/HoroscopeCard';
 import DateToday from './components/DateToday';
 
+import {zodiacSigns} from '../src/data/zodiacDates'
+
 const App: React.FC = () => {
   return (
     <div className="main">
@@ -13,18 +15,12 @@ const App: React.FC = () => {
         {/* <input type="text" name="" id="" autoFocus /> */}
       </div>
       <div className="cards">
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
-        <ZodiacCard zodiacName="Aries" startDate="Mar 21" endDate="Apr 20" />
+        {
+          // Render every zodiac sign
+          zodiacSigns.map(zodiac => 
+            <ZodiacCard zodiacName={zodiac.name} startDate={zodiac.dateStart} endDate={zodiac.dateEnd} />
+          )
+        }
       </div>
 
       <div className="date-now">
