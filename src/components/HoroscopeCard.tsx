@@ -1,27 +1,36 @@
-import React from 'react';
-import './HoroscopeCard.css';
-import calendar from '../assets/calendar.png';
-import medkit from '../assets/medkit.png';
-import heart from '../assets/heart.png';
-import wired from '../assets/wired.png';
+import React from "react";
+import "./HoroscopeCard.css";
+import calendar from "../assets/calendar.png";
+import medkit from "../assets/medkit.png";
+import heart from "../assets/heart.png";
+import wired from "../assets/wired.png";
 
 interface HoroscopeCardProps {
   name: string;
   content: string;
-  imageLocation: string;
+  imageName: string;
+}
+
+interface IObjectKeys {
+  [key: string]: string;
 }
 
 const HoroscopeCard: React.FC<HoroscopeCardProps> = ({
   name,
   content,
-  imageLocation,
+  imageName,
 }) => {
-  const icons = [calendar, wired, heart, medkit];
+  const icons: IObjectKeys = {
+    calendar: calendar,
+    career: wired,
+    love: heart,
+    health: medkit,
+  };
 
   return (
     <div className="horoscopeCard">
       <div className="card-header">
-        <img src={calendar} alt="" />
+        <img src={icons[imageName]} alt="" />
         <p>{name}</p>
       </div>
       <div className="content">
