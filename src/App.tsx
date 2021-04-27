@@ -15,6 +15,12 @@ const App: React.FC = () => {
     null
   );
 
+  // Get the current date
+  const currentDate = new Date();
+  const formattedDate: string = `${currentDate.toLocaleString("default", {
+    month: "long",
+  })} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
+
   const setZodiac = async (zodiacName: string) => {
     const todaysHoroscope: Horoscope[] = await zodiacDailyHoroscope(zodiacName);
     setdailyHoroscope(todaysHoroscope);
@@ -41,7 +47,7 @@ const App: React.FC = () => {
       </div>
 
       <div className="date-now">
-        <DateToday dateToday="April 20, 2021" />
+        <DateToday dateToday={formattedDate} />
       </div>
 
       <div className="horoscope-cards">
