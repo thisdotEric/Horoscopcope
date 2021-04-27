@@ -1,6 +1,7 @@
 export interface Horoscope {
   name: string;
   content: string;
+  imageName: string;
 }
 
 export const zodiacDailyHoroscope = async (
@@ -25,23 +26,22 @@ export const zodiacDailyHoroscope = async (
     {
       name: "Today",
       content: horoscopeData[zodiacName].Daily,
+      imageName: "calendar",
     },
     {
       name: "Career",
       content: horoscopeData[zodiacName].Career,
+      imageName: "career",
     },
     {
       name: "Health",
       content: horoscopeData[zodiacName].Health,
+      imageName: "health",
     },
     {
       name: "Love",
       content: horoscopeData[zodiacName].Love,
+      imageName: "love",
     },
   ];
-  // today: horoscopeData[zodiacName].Daily,
-  // zodiacName: zodiacName,
-  // career: horoscopeData[zodiacName].Career,
-  // health: horoscopeData[zodiacName].Health,
-  // love: horoscopeData[zodiacName].Love,
 };

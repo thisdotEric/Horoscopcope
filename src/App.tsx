@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import ZodiacCard from "./components/ZodiacCard";
 import HoroscopeCard from "./components/HoroscopeCard";
 import DateToday from "./components/DateToday";
-
 import { zodiacSigns } from "../src/data/zodiacDates";
 import {
   Horoscope,
@@ -12,14 +11,11 @@ import {
 } from "../src/data/zodiacDailyHoroscope";
 
 const App: React.FC = () => {
-  const [userZodiac, setUserZodiac] = useState<string>("");
   const [dailyHoroscope, setdailyHoroscope] = useState<Horoscope[] | null>(
     null
   );
 
   const setZodiac = async (zodiacName: string) => {
-    setUserZodiac(zodiacName);
-
     const todaysHoroscope: Horoscope[] = await zodiacDailyHoroscope(zodiacName);
     setdailyHoroscope(todaysHoroscope);
   };
@@ -49,14 +45,16 @@ const App: React.FC = () => {
       </div>
 
       <div className="horoscope-cards">
-        {dailyHoroscope?.map(zodiacTrait => (
-          <HoroscopeCard
-            name={zodiacTrait.name}
-            content={zodiacTrait.content}
-            imageName="health"
-          />
-        ))}
-        ;
+        {
+          // Renders horoscope for the day
+          dailyHoroscope?.map(zodiacTrait => (
+            <HoroscopeCard
+              name={zodiacTrait.name}
+              content={zodiacTrait.content}
+              imageName={zodiacTrait.imageName}
+            />
+          ))
+        }
       </div>
     </div>
   );
