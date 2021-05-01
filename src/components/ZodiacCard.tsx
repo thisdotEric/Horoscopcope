@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./ZodiacCard.css";
-import { ReactComponent as Aries } from "../assets/zodiacSvgs/capricorn.svg";
-import { zodiacDailyHoroscope } from "../data/zodiacDailyHoroscope";
 
 interface ZodiacCardProps {
   zodiacName: string;
@@ -22,7 +20,7 @@ const ZodiacCard: React.FC<ZodiacCardProps> = ({
   const [hideDate, sethideDate] = useState<string>("date");
   return (
     <div
-      className={"zodiac " + (addSlideEffect ? "slide-up" : "")}
+      className={"zodiac " + (addSlideEffect ? "slide" : "")}
       onClick={() => {
         setaddSlideEffect("slide");
         sethighlight("highlight");
@@ -31,10 +29,10 @@ const ZodiacCard: React.FC<ZodiacCardProps> = ({
       }}
     >
       <div className={highlight}>
-        {/* <Aries className="zodiacLogo" /> */}
         <img
           src={require(`../assets/zodiacSvgs/${zodiacName}.svg`).default}
           className="zodiacLogo"
+          alt="svg"
         />
         <p className="zodiacName">{zodiacName}</p>
       </div>

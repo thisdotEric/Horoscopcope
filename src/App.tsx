@@ -37,6 +37,7 @@ const App: React.FC = () => {
           // Render every zodiac sign
           zodiacSigns.map(zodiac => (
             <ZodiacCard
+              key={zodiac.name}
               zodiacName={zodiac.name}
               startDate={zodiac.dateStart}
               endDate={zodiac.dateEnd}
@@ -55,6 +56,7 @@ const App: React.FC = () => {
           // Renders horoscope for the day
           dailyHoroscope?.map(zodiacTrait => (
             <HoroscopeCard
+              key={zodiacTrait.name}
               name={zodiacTrait.name}
               content={zodiacTrait.content}
               imageName={zodiacTrait.imageName}
