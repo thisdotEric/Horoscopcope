@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import ZodiacCard from "./components/ZodiacCard";
@@ -9,11 +9,37 @@ import {
   Horoscope,
   zodiacDailyHoroscope,
 } from "../src/data/zodiacDailyHoroscope";
+import Quote from "./components/Quote";
 
 const App: React.FC = () => {
+  // States
   const [dailyHoroscope, setdailyHoroscope] = useState<Horoscope[] | null>(
     null
   );
+  const [quoteOfTheDay, setQuoteOfTheDay] = useState<{
+    quoteOfTheDay: string;
+    author: string;
+  }>({
+    quoteOfTheDay: "",
+    author: "",
+  });
+
+  useEffect(() => {
+    fetch(`https://quotes.rest/qod?language=en`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then(res => res.json())
+      .then(quotes => {
+        setQuoteOfTheDay({
+          quoteOfTheDay: quotes.contents.quotes[0].quote,
+          author: quotes.contents.quotes[0].author,
+        });
+      })
+      .catch(e => console.log(e));
+  }, []);
 
   // Get the current date
   const currentDate = new Date();
@@ -29,9 +55,10 @@ const App: React.FC = () => {
   return (
     <div className="main">
       <Header />
-      <div className="reader">
-        <p>Hello &nbsp;</p>
-      </div>
+      <Quote
+        quoteOfTheDay={quoteOfTheDay.quoteOfTheDay}
+        author={quoteOfTheDay.author}
+      />
       <div className="cards">
         {
           // Render every zodiac sign
