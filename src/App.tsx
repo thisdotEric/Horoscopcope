@@ -10,6 +10,7 @@ import {
   zodiacDailyHoroscope,
 } from "../src/data/zodiacDailyHoroscope";
 import Quote from "./components/Quote";
+import Loading from "./components/Loading";
 
 const App: React.FC = () => {
   // States
@@ -23,7 +24,9 @@ const App: React.FC = () => {
     quoteOfTheDay: "",
     author: "",
   });
+  const [loading, setLoading] = useState<boolean>(false);
 
+  // Fetch quote of the day from external API
   useEffect(() => {
     fetch(`https://quotes.rest/qod?language=en`, {
       method: "GET",
@@ -48,8 +51,10 @@ const App: React.FC = () => {
   })} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
 
   const setZodiac = async (zodiacName: string) => {
+    setLoading(true);
     const todaysHoroscope: Horoscope[] = await zodiacDailyHoroscope(zodiacName);
     setdailyHoroscope(todaysHoroscope);
+    setLoading(false);
   };
 
   return (
@@ -78,19 +83,23 @@ const App: React.FC = () => {
         <DateToday dateToday={formattedDate} />
       </div>
 
-      <div className="horoscope-cards">
-        {
-          // Renders horoscope for the day
-          dailyHoroscope?.map(zodiacTrait => (
-            <HoroscopeCard
-              key={zodiacTrait.name}
-              name={zodiacTrait.name}
-              content={zodiacTrait.content}
-              imageName={zodiacTrait.imageName}
-            />
-          ))
-        }
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="horoscope-cards">
+          {
+            // Renders horoscope for the day
+            dailyHoroscope?.map(zodiacTrait => (
+              <HoroscopeCard
+                key={zodiacTrait.name}
+                name={zodiacTrait.name}
+                content={zodiacTrait.content}
+                imageName={zodiacTrait.imageName}
+              />
+            ))
+          }
+        </div>
+      )}
     </div>
   );
 };
