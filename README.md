@@ -8,7 +8,7 @@
 
 ```
 CTRL + Shift + P
-Search for **Git Clone** then paste:
+Search for Git Clone then paste:
 
 https://github.com/thisdotEric/Horoscopcope.git
 ```
