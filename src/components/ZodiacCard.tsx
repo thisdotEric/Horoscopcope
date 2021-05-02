@@ -43,11 +43,11 @@ const ZodiacCard: React.FC<ZodiacCardProps> = ({
       }}
     >
       <div className={highlight}>
-        <img
+        {/* <img
           src={require(`../assets/zodiacSvgs/${zodiacName}.svg`).default}
           className="zodiacLogo"
           alt="svg"
-        />
+        /> */}
         <p className="zodiacName">{zodiacName}</p>
       </div>
       <div className={hideDate}>
