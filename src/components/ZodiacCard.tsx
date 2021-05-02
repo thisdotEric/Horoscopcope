@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./ZodiacCard.css";
-import { ReactComponent as Aries } from "../assets/zodiacSvgs/Aries.svg";
 
 interface ZodiacCardProps {
   zodiacName: string;
@@ -44,13 +43,11 @@ const ZodiacCard: React.FC<ZodiacCardProps> = ({
       }}
     >
       <div className={highlight}>
-        {/* <img
+        <img
           src={require(`../assets/zodiacSvgs/${zodiacName}.svg`).default}
           className="zodiacLogo"
           alt="svg"
-        /> */}
-
-        <Aries className="zodiacLogo" />
+        />
         <p className="zodiacName">{zodiacName}</p>
       </div>
       <div className={hideDate}>
