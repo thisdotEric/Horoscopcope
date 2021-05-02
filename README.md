@@ -11,7 +11,6 @@ CTRL + Shift + P
 Search for **Git Clone** then paste:
 
 https://github.com/thisdotEric/Horoscopcope.git
-
 ```
 
 4. Open command terminal and install libraries
