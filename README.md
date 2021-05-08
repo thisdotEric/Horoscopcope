@@ -16,7 +16,6 @@ https://github.com/thisdotEric/Horoscopcope.git
 4. Open command terminal and install libraries
 
 ```
-CTRL + `
 npm install
 ```
 
